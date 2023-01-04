@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  clamav:
+    image: clamavdocker:latest
+    restart: always
+    ports:
+      - 3310:3310
