@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.17
 
 LABEL maintainer = "Sébastien Poher <sebastien.poher@probesys.com>"
 LABEL name = "ClamAV dockerized for AgentJ SaaS"
@@ -22,7 +22,6 @@ RUN apk --no-cache add \
     freshclam \
     gpg-agent \
     gzip \
-    iproute2 \
     perl-dbd-mysql \
     perl-db \
     perl-dbi \
