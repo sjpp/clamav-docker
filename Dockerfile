@@ -22,12 +22,7 @@ RUN apk --no-cache add \
     freshclam \
     gpg-agent \
     gzip \
-    perl-dbd-mysql \
-    perl-db \
-    perl-dbi \
-    perl-io-socket-ssl \
-    perl-mail-spf \
-    patch \
+    iproute2 \
     pax-utils \
     rsyslog \
     supervisor \

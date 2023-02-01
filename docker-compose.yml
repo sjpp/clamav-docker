@@ -1,7 +1,9 @@
 version: '3.7'
 services:
   clamav:
-    image: probesys38/clamav-docker:latest
+    image: probesys38/clamav-docker:${VERSION}
     restart: always
+    env_file:
+      - .env
     ports:
       - 3310:3310
