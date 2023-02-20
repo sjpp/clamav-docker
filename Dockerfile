@@ -9,13 +9,13 @@ RUN apk --no-cache add \
     bzip2 \
     ca-certificates \
     cabextract \
-    clamav \
-    clamav-clamdscan \
-    clamav-db \
-    clamav-daemon \
-    clamav-libunrar \
-    clamav-milter \
-    clamav-scanner \
+    "clamav>=0.105.2-r0" \
+    "clamav-clamdscan>=0.105.2-r0" \
+    "clamav-db>=0.105.2-r0" \
+    "clamav-daemon>=0.105.2-r0" \
+    "clamav-libunrar>=0.105.2-r0" \
+    "clamav-milter>=0.105.2-r0" \
+    "clamav-scanner>=0.105.2-r0" \
     cpio \
     dcron \
     file \
