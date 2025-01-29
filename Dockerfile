@@ -1,25 +1,26 @@
-FROM alpine:3.19
+FROM debian:bookworm-slim
 
-LABEL maintainer = "Sébastien Poher <sebastien.poher@probesys.com>"
-LABEL name = "ClamAV dockerized for AgentJ SaaS"
-LABEL description = "Starts local ClamAV as remote TCP AV scanner"
+LABEL maintainer="Sébastien Poher <sebastien.poher@probesys.coop>"
+LABEL name="ClamAV dockerized for AgentJ SaaS"
+LABEL description="Starts local ClamAV as remote TCP AV scanner"
 
-RUN apk --no-cache add \
-    unarj \
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,id=apt-lib,target=/var/lib/apt,sharing=locked \
+    --mount=type=cache,id=debconf,target=/var/cache/debconf,sharing=locked \
+    apt-get update -q --fix-missing && \
+    apt-get -y install --no-install-recommends \
+    arj \
     bzip2 \
     ca-certificates \
     cabextract \
-    "clamav>=1.2.2-r0" \
-    "clamav-clamdscan>=1.2.2-r0" \
-    "clamav-db>=1.2.2-r0" \
-    "clamav-daemon>=1.2.2-r0" \
-    "clamav-libunrar>=1.2.2-r0" \
-    "clamav-milter>=1.2.2-r0" \
-    "clamav-scanner>=1.2.2-r0" \
+    clamav >=1.0.7+dfsg-1~deb12u1 \
+    clamav-daemon>=1.0.7+dfsg-1~deb12u1 \
+    clamav-base>=1.0.7+dfsg-1~deb12u1 \
+    clamav-freshclam>=1.0.7+dfsg-1~deb12u1 \
+    clamav-milter>=1.0.7+dfsg-1~deb12u1 \
     cpio \
-    dcron \
+    cron \
     file \
-    freshclam \
     gpg-agent \
     gzip \
     iproute2 \
