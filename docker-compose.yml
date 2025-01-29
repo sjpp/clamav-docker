@@ -1,4 +1,3 @@
-version: '3.7'
 services:
   clamav:
     image: probesys38/clamav-docker:${VERSION}
