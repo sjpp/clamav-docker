@@ -44,5 +44,6 @@ RUN /usr/bin/freshclam --log=/var/log/clamav/freshclam.log \
 EXPOSE 3310/tcp
 
 CMD [ "supervisord", "-c", "/etc/supervisord.conf" ]
+USER root
 ENTRYPOINT [ "/entrypoint.sh" ]
 HEALTHCHECK --start-period=60s CMD [ "/healthcheck.sh" ]
