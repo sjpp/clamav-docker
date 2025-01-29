@@ -14,6 +14,6 @@ then
     chown -R clamav:clamav /run/clamav
 fi
 
-crond
+cron
 
 exec "$@"
